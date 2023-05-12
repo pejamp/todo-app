@@ -1,0 +1,42 @@
+@import './style-guide.scss';
+
+.main {
+  height: 100vh;
+  background-color: $dark-very-dark-blue;
+  position: relative;
+
+  .header-bg {
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .container {
+    position: absolute;
+    top: 0;
+    padding: 44px 24px;
+
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 38px;
+
+      h1 {
+        font-size: 24px;
+        text-transform: uppercase;
+        color: $light-very-light-gray;
+        letter-spacing: 12px;
+      }
+    }
+
+    .info-box {
+      text-align: center;
+      color: $dark-grayish-blue;
+      font-size: 14px;
+      font-weight: $bold-weight;
+      padding-top: 42px;
+    }
+  }
+}

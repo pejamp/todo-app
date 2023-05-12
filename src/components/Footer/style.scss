@@ -1,0 +1,12 @@
+@import '../../styles/style-guide.scss';
+
+.footer {
+  padding: 16px;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: $primary-bright-blue;
+    font-weight: $bold-weight;
+  }
+}

@@ -1,0 +1,34 @@
+@import '../../styles/style-guide.scss';
+
+.input-container {
+  height: 48px;
+  background-color: $dark-very-dark-desaturated-blue;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding-left: 18px;
+  padding-right: 18px;
+  gap: 12px;
+
+  input {
+    flex: 1;
+    background: transparent;
+    border: 0;
+    outline: none;
+    font-size: 14px;
+    color: $dark-light-grayish-blue;
+    caret-color: $primary-bright-blue;
+
+    &::placeholder {
+      color: $dark-dark-grayish-blue;
+    }
+  }
+
+  &::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid $dark-grayish-blue;
+  }
+}
