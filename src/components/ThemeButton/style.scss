@@ -1,0 +1,13 @@
+@import '../../styles/style-guide.scss';
+
+.theme-btn {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  width: 20px;
+  cursor: pointer;
+
+  img {
+    object-fit: contain;
+  }
+}

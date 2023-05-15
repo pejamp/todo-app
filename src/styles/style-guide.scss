@@ -21,3 +21,9 @@ $dark-very-dark-grayish-blue: hsl(237, 14%, 26%);
 $text-size: 18px;
 $normal-weight: 400;
 $bold-weight: 700;
+
+@mixin media($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}

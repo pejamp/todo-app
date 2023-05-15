@@ -13,6 +13,7 @@
   .filter-label {
     color: $dark-dark-grayish-blue;
     font-weight: $bold-weight;
+    cursor: pointer;
     transition: all 300ms ease;
 
     .filter-input {
