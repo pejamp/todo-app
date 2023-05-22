@@ -7,6 +7,10 @@
   width: 20px;
   cursor: pointer;
 
+  @include media(1200px) {
+    width: 26px;
+  }
+
   img {
     object-fit: contain;
   }

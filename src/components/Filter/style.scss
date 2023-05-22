@@ -10,11 +10,24 @@
   border-radius: 4px;
   box-shadow: 0 16px 16px #0F0F16;
 
+  @include media(1200px) {
+    background: transparent;
+    box-shadow: none;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+
   .filter-label {
     color: $dark-dark-grayish-blue;
     font-weight: $bold-weight;
     cursor: pointer;
     transition: all 300ms ease;
+
+    @include media(1200px) {
+      font-size: 14px;
+    }
 
     .filter-input {
       -webkit-appearance: none;

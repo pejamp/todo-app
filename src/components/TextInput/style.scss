@@ -10,6 +10,13 @@
   padding-right: 18px;
   gap: 12px;
 
+  @include media(1200px) {
+    height: 64px;
+    gap: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
   input {
     flex: 1;
     background: transparent;
@@ -22,6 +29,10 @@
     &::placeholder {
       color: $dark-dark-grayish-blue;
     }
+
+    @include media(1200px) {
+      font-size: $text-size;
+    }
   }
 
   &::before {
@@ -30,5 +41,10 @@
     height: 20px;
     border-radius: 50%;
     border: 1px solid $dark-grayish-blue;
+
+    @include media(1200px) {
+      width: 24px;
+      height: 24px;
+    }
   }
 }

@@ -1,5 +1,12 @@
+@import '../../styles/style-guide.scss';
+
 .todo-container {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  position: relative;
+
+  @include media(1200px) {
+    gap: 24px;
+  }
 }
