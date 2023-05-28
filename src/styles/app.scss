@@ -61,6 +61,10 @@
       font-size: 12px;
       font-weight: $bold-weight;
       padding-top: 42px;
+
+      @include media(1200px) {
+        font-size: 14px;
+      }
     }
   }
 }

@@ -33,7 +33,14 @@
         gap: 12px;
         font-size: 14px;
         color: $dark-light-grayish-blue;
+        cursor: pointer;
+        transition: color 125ms ease-out;
 
+        &:has(input:checked) {
+          color: $dark-grayish-blue;
+          text-decoration: line-through;
+        }
+        
         @include media(1200px) {
           gap: 24px;
           font-size: $text-size;
@@ -44,6 +51,7 @@
           appearance: none;
           background-color: transparent;
           margin: 0;
+          position: relative;
           width: 20px;
           height: 20px;
           border: 1px solid $dark-grayish-blue;
@@ -51,6 +59,14 @@
           display: grid;
           place-content: center;
           cursor: pointer;
+          transition: border 250ms ease-out;
+          
+          &:hover {
+            background: linear-gradient($dark-very-dark-desaturated-blue, $dark-very-dark-desaturated-blue) padding-box,
+            $primary-check-background border-box;
+            border-radius: 50%;
+            border: 1px solid transparent;
+          }
 
           &::before {
             content: "";
@@ -63,7 +79,7 @@
             background-size: auto;
             opacity: 0;
             visibility: hidden;
-            transition: all 120ms ease-in-out;
+            transition: all 125ms ease-out;
           }
 
           &:checked::before {
@@ -92,7 +108,7 @@
         cursor: pointer; 
 
         @include media(1200px) {
-          transition: all 200ms ease-in;
+          transition: opacity 250ms ease-out, visibility 250ms ease-out;
           opacity: 0;
           visibility: hidden;
         }
@@ -114,13 +130,23 @@
     button {
       background: transparent;
       border: 0;
+      padding: 0;
       font-size: 12px;
       color: $dark-dark-grayish-blue;
-      padding: 0;
+      cursor: pointer;
+      transition: color 300ms ease;
+
+      &:hover {
+        color: $dark-light-grayish-blue-hover;
+      }
     }
 
     @include media(1200px) {
       padding: 18px 24px;
+
+      p, button {
+        font-size: 14px;
+      }
     }
   }
 }
