@@ -1,9 +1,21 @@
-import './style.scss'
+import "./style.scss";
 
-export const TextInput = () => {
-  return (
-    <div className='input-container'>
-      <input type="text" name="task" id="task" placeholder='Create a new todo...' />
-    </div>
-  )
+interface TextInputProps {
+  task: string;
+  onTask: (v: string) => void;
 }
+
+export const TextInput = ({ task, onTask }:TextInputProps) => {
+  return (
+    <div className="input-container">
+      <input
+        type="text"
+        name="task"
+        id="task"
+        placeholder="Create a new todo..."
+        value={task}
+        onChange={event => onTask(event.target.value)}
+      />
+    </div>
+  );
+};
