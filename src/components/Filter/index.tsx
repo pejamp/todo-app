@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./style.scss";
 
-export const Filter = () => {
-  const [selectedFilter, setSelectedFilter] = useState('');
+interface FilterProps {
+  onFilterTasks: (filter: string) => void;
+}
+
+export const Filter = ({ onFilterTasks }: FilterProps) => {
+  const [selectedFilter, setSelectedFilter] = useState('all');
 
   const options = [
     { id: "all", label: "All" },
@@ -13,6 +17,10 @@ export const Filter = () => {
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedFilter(event.target.value);
   };
+
+  useEffect(() => {
+    onFilterTasks(selectedFilter);
+  }, [selectedFilter])
 
   return (
     <div className="filter-container">
