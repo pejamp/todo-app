@@ -1,9 +1,9 @@
 @import '../../styles/style-guide.scss';
 
 .task-container {
-  background-color: $dark-very-dark-desaturated-blue;
+  background-color: $dark-blue-200;
   border-radius: 4px;
-  box-shadow: 0 16px 16px #0F0F16;
+  box-shadow: 0 16px 16px #0E0E18;
 
   .task-list {
     padding: 0;
@@ -11,7 +11,7 @@
     .task-item {
       list-style: none;
       padding: 16px 20px;
-      border-bottom: 1px solid $dark-very-dark-grayish-blue;
+      border-bottom: 1px solid $dark-gray-blue-300;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -32,12 +32,12 @@
         align-items: center;
         gap: 12px;
         font-size: 14px;
-        color: $dark-light-grayish-blue;
+        color: $light-gray-blue;
         cursor: pointer;
         transition: color 125ms ease-out;
 
         &:has(input:checked) {
-          color: $dark-grayish-blue;
+          color: $dark-gray-blue-200;
           text-decoration: line-through;
         }
         
@@ -54,7 +54,7 @@
           position: relative;
           width: 20px;
           height: 20px;
-          border: 1px solid $dark-grayish-blue;
+          border: 1px solid $dark-gray-blue-300;
           border-radius: 50%;
           display: grid;
           place-content: center;
@@ -62,7 +62,7 @@
           transition: border 250ms ease-out;
           
           &:hover {
-            background: linear-gradient($dark-very-dark-desaturated-blue, $dark-very-dark-desaturated-blue) padding-box,
+            background: linear-gradient($dark-blue-200, $dark-blue-200) padding-box,
             $primary-check-background border-box;
             border-radius: 50%;
             border: 1px solid transparent;
@@ -124,7 +124,7 @@
 
     p {
       font-size: 12px;
-      color: $dark-dark-grayish-blue;
+      color: $dark-gray-blue-200;
     }
 
     button {
@@ -132,12 +132,12 @@
       border: 0;
       padding: 0;
       font-size: 12px;
-      color: $dark-dark-grayish-blue;
+      color: $dark-gray-blue-200;
       cursor: pointer;
       transition: color 300ms ease;
 
       &:hover {
-        color: $dark-light-grayish-blue-hover;
+        color: $light-gray-blue-hover;
       }
     }
 

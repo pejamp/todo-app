@@ -2,7 +2,7 @@
 
 .input-container {
   height: 48px;
-  background-color: $dark-very-dark-desaturated-blue;
+  background-color: $dark-blue-200;
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -23,11 +23,11 @@
     border: 0;
     outline: none;
     font-size: 14px;
-    color: $dark-light-grayish-blue;
+    color: $light-gray-blue;
     caret-color: $primary-bright-blue;
 
     &::placeholder {
-      color: $dark-dark-grayish-blue;
+      color: $dark-gray-blue-100;
     }
 
     @include media(1200px) {
@@ -40,7 +40,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 1px solid $dark-grayish-blue;
+    border: 1px solid $dark-gray-blue-300;
 
     @include media(1200px) {
       width: 24px;

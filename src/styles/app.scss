@@ -2,7 +2,7 @@
 
 .main {
   height: 100vh;
-  background-color: $dark-very-dark-blue;
+  background-color: $dark-blue-100;
   position: relative;
 
   .header-bg {
@@ -41,7 +41,7 @@
       h1 {
         font-size: 24px;
         text-transform: uppercase;
-        color: $light-very-light-gray;
+        color: $light-gray-100;
         letter-spacing: 12px;
         line-height: normal;
       }
@@ -57,7 +57,7 @@
 
     .info-box {
       text-align: center;
-      color: $dark-grayish-blue;
+      color: $dark-gray-blue-200;
       font-size: 12px;
       font-weight: $bold-weight;
       padding-top: 42px;
@@ -65,6 +65,18 @@
       @include media(1200px) {
         font-size: 14px;
       }
+    }
+  }
+}
+
+.light-mode {
+  background-color: $light-gray-100;
+
+  .header-bg {
+    background-image: url('../assets/images/bg-mobile-light.jpg');
+
+    @include media(1200px) {
+      background-image: url('../assets/images/bg-desktop-light.jpg');
     }
   }
 }

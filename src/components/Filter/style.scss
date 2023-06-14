@@ -5,10 +5,10 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
-  background-color: $dark-very-dark-desaturated-blue;
+  background-color: $dark-blue-200;
   height: 48px;
   border-radius: 4px;
-  box-shadow: 0 16px 16px #0F0F16;
+  box-shadow: 0 16px 16px #0E0E16;
 
   @include media(1200px) {
     background: transparent;
@@ -22,13 +22,13 @@
   }
 
   .filter-label {
-    color: $dark-dark-grayish-blue;
+    color: $dark-gray-blue-200;
     font-weight: $bold-weight;
     cursor: pointer;
     transition: all 300ms ease;
 
     &:hover {
-      color: $dark-light-grayish-blue-hover;
+      color: $light-gray-blue-hover;
     }
 
     @include media(1200px) {
