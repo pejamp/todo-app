@@ -70,6 +70,7 @@
 }
 
 .light-mode {
+  // app
   background-color: $light-gray-100;
 
   .header-bg {
@@ -77,6 +78,87 @@
 
     @include media(1200px) {
       background-image: url('../assets/images/bg-desktop-light.jpg');
+    }
+  }
+
+  .container {
+    .info-box {
+      color: $dark-gray-100;
+    }
+  }
+
+  // text-input
+  .input-container {
+    background-color: #FFFFFF;
+  
+    input {
+      color: $dark-gray-blue-300;
+      caret-color: $primary-bright-blue;
+  
+      &::placeholder {
+        color: $dark-gray-100;
+      }
+    }
+  
+    &::before {
+      border: 1px solid $light-gray-300;
+    }
+  }
+
+  // task-list
+  .task-container {
+    background-color: #FFFFFF;
+    box-shadow: 0 24px 24px -8px $light-gray-200;
+  
+    .task-list {
+      .task-item {
+        border-bottom: 1px solid $light-gray-200;
+        
+        label {
+          color: $dark-gray-200;
+  
+          &:has(input:checked) {
+            color: $light-gray-300;
+          }
+  
+          input {
+            border: 1px solid $light-gray-300;
+            
+            &:hover {
+              background: linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+              $primary-check-background border-box;
+            }
+          }
+        }
+      }
+    }
+  
+    .task-control {
+      p {
+        color: $dark-gray-100;
+      }
+  
+      button {
+        color: $dark-gray-100;
+  
+        &:hover {
+          color: $dark-gray-200;
+        }
+      }
+    }
+  }
+
+  // filter
+  .filter-container {
+    background-color: #FFFFFF;
+    box-shadow: 0 24px 24px -8px $light-gray-200;
+  
+    .filter-label {
+      color: $dark-gray-100;
+  
+      &:hover {
+        color: $dark-gray-200;
+      }
     }
   }
 }

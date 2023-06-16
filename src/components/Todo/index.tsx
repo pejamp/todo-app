@@ -16,8 +16,8 @@ const initialContent = [
 ];
 
 export const Todo = () => {
-  const [task, setTask] = useState('');
   const [todos, setTodos] = useLocalStorage("todo", initialContent);
+  const [task, setTask] = useState('');
   const [filteredTasks, setFilteredTasks] = useState(todos);
 
   function handleChangeTaskInput(text: string) {
