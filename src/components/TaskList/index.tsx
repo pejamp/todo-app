@@ -2,12 +2,19 @@ import "./style.scss";
 import closeIcon from "../../assets/images/icon-cross.svg";
 import { ChangeEvent } from "react";
 import { TodosType } from "../../types";
+import {
+  DragDropContext,
+  Droppable,
+  Draggable,
+  DropResult,
+} from "@hello-pangea/dnd";
 
 interface TaskListProps {
   todos: TodosType[];
   onSetTodos: ([]) => void;
   filteredTodos: TodosType[];
   onClearCompletedTasks: () => void;
+  onDragEnd: (result: DropResult) => void;
 }
 
 export const TaskList = ({
@@ -15,6 +22,7 @@ export const TaskList = ({
   onSetTodos,
   filteredTodos,
   onClearCompletedTasks,
+  onDragEnd,
 }: TaskListProps) => {
   const tasksLeft = todos.filter((todo) => !todo.done);
 
@@ -38,29 +46,60 @@ export const TaskList = ({
   }
 
   return (
-    <div className="task-container">
-      <ul className="task-list">
-        {filteredTodos.map((todo) => (
-          <li key={todo.id} className="task-item">
-            <label>
-              <input
-                type="checkbox"
-                id={`task-${todo.id}`}
-                checked={todo.done}
-                onChange={(event) => handleCheckboxChange(event, todo)}
-              />
-              {todo.task}
-            </label>
-            <button onClick={() => handleRemoveTaskFromList(todo)}>
-              <img src={closeIcon} alt="close" />
-            </button>
-          </li>
-        ))}
-      </ul>
-      <div className="task-control">
-        <p>{tasksLeft.length} items left</p>
-        <button onClick={onClearCompletedTasks}>Clear Completed</button>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div className="task-container">
+        <Droppable droppableId="droppable">
+          {(provided) => (
+            <ul
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+              className="task-list"
+            >
+              {filteredTodos.map((todo, index) => (
+                <Draggable key={todo.id} draggableId={todo.id} index={index}>
+                  {(provided, snapshot) => {
+                    if (snapshot.isDragging) {
+                      provided.draggableProps.style.left =
+                        provided.draggableProps.style.offsetLeft;
+                      provided.draggableProps.style.top =
+                        provided.draggableProps.style.offsetTop;
+                    }
+
+                    return (
+                      <li
+                        className="task-item"
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        <label>
+                          <input
+                            type="checkbox"
+                            id={`task-${todo.id}`}
+                            checked={todo.done}
+                            onChange={(event) =>
+                              handleCheckboxChange(event, todo)
+                            }
+                          />
+                          {todo.task}
+                        </label>
+                        <button onClick={() => handleRemoveTaskFromList(todo)}>
+                          <img src={closeIcon} alt="close" />
+                        </button>
+                      </li>
+                    );
+                  }}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </ul>
+          )}
+        </Droppable>
+        <div className="task-control">
+          <p>{tasksLeft.length} items left</p>
+          <button onClick={onClearCompletedTasks}>Clear Completed</button>
+        </div>
       </div>
-    </div>
+    </DragDropContext>
   );
 };

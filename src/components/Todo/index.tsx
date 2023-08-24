@@ -6,6 +6,7 @@ import { TaskList } from '../TaskList'
 import { TextInput } from '../TextInput'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { TodosType } from '../../types';
+import { DropResult } from '@hello-pangea/dnd';
 
 const initialContent = [
   { id: uuidv4(), task: 'Objeto 1', done: false },
@@ -15,8 +16,16 @@ const initialContent = [
   { id: uuidv4(), task: 'Objeto 5', done: false },
 ];
 
+const reorder = (list: [], startIndex: number, endIndex: number) => {
+  const result = Array.from(list);
+  const [removed] = result.splice(startIndex, 1)
+  result.splice(endIndex, 0, removed);
+
+  return result;
+}
+
 export const Todo = () => {
-  const [todos, setTodos] = useLocalStorage("todo", initialContent);
+  const [todos, setTodos] = useLocalStorage("todo");
   const [task, setTask] = useState('');
   const [filteredTasks, setFilteredTasks] = useState(todos);
 
@@ -60,6 +69,12 @@ export const Todo = () => {
     setTodos(uncompletedTasks);
   }
 
+  function handleDragEnd({ destination, source }: DropResult) {
+    if (!destination) return;
+
+    setFilteredTasks(reorder(filteredTasks, source.index, destination.index))
+  }
+
   useEffect(() => {
     setFilteredTasks(todos)
   }, [todos])
@@ -73,6 +88,7 @@ export const Todo = () => {
           filteredTodos={filteredTasks}
           onSetTodos={setTodos}
           onClearCompletedTasks={handleClearCompletedTasks}
+          onDragEnd={handleDragEnd}
         />
         <Filter onFilterTasks={handleFilterTasks} />
       </div>

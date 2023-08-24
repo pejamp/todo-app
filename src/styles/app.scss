@@ -25,7 +25,7 @@
     top: 0;
     padding: 44px 24px;
 
-    @include media(1200px) {
+    @include media(560px) {
       max-width: 540px;
       left: 50%;
       transform: translateX(-50%);
@@ -161,4 +161,15 @@
       }
     }
   }
+}
+
+// scrollbar
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #fafafa;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#57ddff, #c058f3);
 }

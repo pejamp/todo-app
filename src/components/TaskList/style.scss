@@ -7,6 +7,18 @@
 
   .task-list {
     padding: 0;
+    max-height: 50vh;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 2px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #25273c;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #393a4c;
+    }
 
     .task-item {
       list-style: none;
