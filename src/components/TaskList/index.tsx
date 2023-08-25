@@ -57,7 +57,7 @@ export const TaskList = ({
             >
               {filteredTodos.map((todo, index) => (
                 <Draggable key={todo.id} draggableId={todo.id} index={index}>
-                  {(provided, snapshot) => (
+                  {(provided) => (
                     <li
                       className="task-item"
                       ref={provided.innerRef}
