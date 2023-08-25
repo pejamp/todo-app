@@ -9,7 +9,7 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
 </p>
 
 <h1 align="center">
-    <img alt="" src="./capa.png" />
+    <img alt="" src="/src/assets/capa.png" />
 </h1>
 
 ## 🎯 The challenge
@@ -35,9 +35,16 @@ Users should be able to:
 
 ## 🚀 How to clone
 
+Clone the project and access its folder.
 ```bash
 $ git clone https://github.com/pejamp/todo-app
 $ cd todo-app
+```
+
+To run it, follow the steps below:
+```bash
+$ npm install
+$ npm run dev
 ```
 
 ## 🌐 Project
