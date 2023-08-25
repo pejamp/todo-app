@@ -8,14 +8,6 @@ import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { TodosType } from '../../types';
 import { DropResult } from '@hello-pangea/dnd';
 
-const initialContent = [
-  { id: uuidv4(), task: 'Objeto 1', done: false },
-  { id: uuidv4(), task: 'Objeto 2', done: true },
-  { id: uuidv4(), task: 'Objeto 3', done: false },
-  { id: uuidv4(), task: 'Objeto 4', done: true },
-  { id: uuidv4(), task: 'Objeto 5', done: false },
-];
-
 const reorder = (list: [], startIndex: number, endIndex: number) => {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1)

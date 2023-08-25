@@ -57,38 +57,29 @@ export const TaskList = ({
             >
               {filteredTodos.map((todo, index) => (
                 <Draggable key={todo.id} draggableId={todo.id} index={index}>
-                  {(provided, snapshot) => {
-                    if (snapshot.isDragging) {
-                      provided.draggableProps.style.left =
-                        provided.draggableProps.style.offsetLeft;
-                      provided.draggableProps.style.top =
-                        provided.draggableProps.style.offsetTop;
-                    }
-
-                    return (
-                      <li
-                        className="task-item"
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                      >
-                        <label>
-                          <input
-                            type="checkbox"
-                            id={`task-${todo.id}`}
-                            checked={todo.done}
-                            onChange={(event) =>
-                              handleCheckboxChange(event, todo)
-                            }
-                          />
-                          {todo.task}
-                        </label>
-                        <button onClick={() => handleRemoveTaskFromList(todo)}>
-                          <img src={closeIcon} alt="close" />
-                        </button>
-                      </li>
-                    );
-                  }}
+                  {(provided, snapshot) => (
+                    <li
+                      className="task-item"
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                    >
+                      <label>
+                        <input
+                          type="checkbox"
+                          id={`task-${todo.id}`}
+                          checked={todo.done}
+                          onChange={(event) =>
+                            handleCheckboxChange(event, todo)
+                          }
+                        />
+                        {todo.task}
+                      </label>
+                      <button onClick={() => handleRemoveTaskFromList(todo)}>
+                        <img src={closeIcon} alt="close" />
+                      </button>
+                    </li>
+                  )}
                 </Draggable>
               ))}
               {provided.placeholder}
