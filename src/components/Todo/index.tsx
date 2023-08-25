@@ -46,7 +46,7 @@ export const Todo = () => {
       done: false 
     }
    
-    setTodos([...todos, newTask]);
+    setTodos([...filteredTasks, newTask]);
     setTask('');
   }
 
